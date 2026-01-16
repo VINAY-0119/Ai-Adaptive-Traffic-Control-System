@@ -1,59 +1,61 @@
-cat > README.md << EOF
+cat > README.md << 'EOF'
 # Adaptive Traffic Signal Simulation (ATSS)
 
-![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)  
+![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-This project presents a Python framework designed to model, simulate, and optimize traffic signal control at a four-way intersection. It enables comparison between Fixed-Time and Adaptive traffic control strategies through discrete-time simulation.
+An extensible Python framework designed to model, simulate, and optimize traffic signal control logic at a four-way intersection. This project provides a sandbox for testing **Fixed-Time** vs. **Adaptive** control strategies using discrete-time simulation.
 
 ---
 
-## Overview
+## 📌 Overview
 
-Traffic congestion is a critical issue in urban environments. The ATSS framework simulates traffic flows in North-South (NS) and East-West (EW) directions, providing a platform to assess the impact of various signal control algorithms on vehicle delay. Its modular design facilitates easy extension from simple rule-based methods to advanced reinforcement learning techniques.
-
----
-
-## Key Features
-
-- Detailed Vehicle Modeling: Tracks individual vehicles with wait time accumulation and FIFO lane queuing.
-- Configurable Signal Phases: Implements a two-phase system (NS/EW) with configurable minimum and maximum green durations.
-- Modular Controllers:  
-  - Fixed-Time: Traditional cyclic control strategy.  
-  - Rule-Based Adaptive: Dynamic adjustment based on real-time sensor data.
-- Virtual Sensors: Integrated mechanisms for queue length and delay monitoring.
-- Performance Metrics: Automatic computation of average vehicle delay to evaluate control efficiency.
+Urban congestion is a significant challenge for modern infrastructure. The **ATSS Framework** allows users to simulate North-South (NS) and East-West (EW) traffic flows to evaluate how different signal algorithms impact vehicle latency. By utilizing a modular architecture, the simulation can be easily extended from simple rule-based logic to complex Reinforcement Learning (RL) models.
 
 ---
 
-## Project Structure
+## 🚀 Key Features
 
-\`\`\`
+- **High-Fidelity Modeling:** Individual vehicle tracking with cumulative wait-time metrics and FIFO (First-In-First-Out) lane queuing.  
+- **Dynamic Signal Phases:** Configurable two-phase system (NS/EW) with safety constraints like minimum/maximum green times.  
+- **Pluggable Controllers:**  
+  - `Fixed-Time`: Traditional cycle-based approach.  
+  - `Rule-Based Adaptive`: Reacts to real-time sensor data to minimize active queues.  
+- **Virtual Sensing:** Integrated hooks for queue length detection and cumulative delay monitoring.  
+- **Data-Driven Metrics:** Automated calculation of **Average Vehicle Delay**, providing immediate feedback on algorithm efficiency.  
+
+---
+
+## 📂 Project Structure
+
+The project follows a decoupled architecture to ensure that the simulation engine is independent of the control logic.
+
+\`\`\`text
 traffic_signal_sim/
 ├── main.py                # Simulation entry point
-├── simulation/
-│   ├── simulator.py       # Discrete time-step simulation engine
-│   ├── intersection.py    # Traffic signal phase management
-│   ├── lane.py            # Vehicle queue management
+├── simulation/            # Core Physics & Logic
+│   ├── simulator.py       # Engine handling discrete time steps
+│   ├── intersection.py    # Signal phase state machine
+│   ├── lane.py            # Queue management
 │   └── vehicle.py         # Vehicle attribute tracking
-├── sensors/
-│   └── sensors.py         # Virtual sensors for queue and delay measurement
-├── controllers/
-│   ├── fixed_time.py      # Fixed-Time signal controller
-│   └── rule_based.py      # Adaptive rule-based controller
-├── metrics/
-│   └── performance.py     # Delay and throughput analytics
+├── sensors/               # Data Acquisition
+│   └── sensors.py         # Virtual sensors for queue/delay metrics
+├── controllers/           # Intelligence Layer
+│   ├── fixed_time.py      # Static cycle implementation
+│   └── rule_based.py      # Adaptive logic
+├── metrics/               # Analytics
+│   └── performance.py     # Average delay & throughput calculations
 └── requirements.txt
 \`\`\`
 
 ---
 
-## Getting Started
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Python 3.7 or later  
-- NumPy library
+- Python 3.7 or higher  
+- NumPy (for traffic distribution modeling)  
 
 ### Installation
 
@@ -64,13 +66,13 @@ git clone https://github.com/yourusername/traffic_signal_sim.git
 cd traffic_signal_sim
 \`\`\`
 
-(Optional) Create and activate a virtual environment:
+(Optional) Set up a virtual environment:
 
 \`\`\`bash
 python -m venv venv
-# Windows:
+# On Windows:
 venv\\Scripts\\activate
-# macOS/Linux:
+# On macOS/Linux:
 source venv/bin/activate
 \`\`\`
 
@@ -80,9 +82,9 @@ Install dependencies:
 pip install -r requirements.txt
 \`\`\`
 
-### Running the Simulation
+### Usage
 
-Execute the simulation using the default rule-based adaptive controller:
+Run the simulation with the default rule-based adaptive controller:
 
 \`\`\`bash
 python main.py
@@ -96,25 +98,27 @@ Simulation finished for 500 steps. Total Vehicles Passed: 215 Average Delay per 
 
 ---
 
-## Extending the Framework
+## 🔧 Extending the Simulation
 
-To implement a custom control algorithm, create a new class within the \`controllers/\` directory and define the \`decide\` method:
+### Creating a New Controller
+
+To test a custom algorithm (e.g., Fuzzy Logic or RL), create a new class in \`controllers/\` and implement the \`decide\` method:
 
 \`\`\`python
-class CustomController:
+class MyAIController:
     def decide(self, intersection, queues):
-        # Define logic to select signal phase
+        # Your logic: switch phase if queue > threshold
         # Return 0 for North-South, 1 for East-West
         pass
 \`\`\`
 
 ---
 
-## Future Enhancements
+## 📈 Future Roadmap
 
-- Integration of real-time visualization using matplotlib  
-- Development of reinforcement learning agents with OpenAI Gym wrappers  
-- Expansion to multi-intersection simulations for urban corridor modeling
+- [ ] Visualization: Add a matplotlib wrapper to see real-time queue growth.  
+- [ ] AI Integration: Build a Reinforcement Learning agent using OpenAI Gym wrappers.  
+- [ ] Multi-Intersection: Connect multiple simulation blocks to model a city corridor.  
 
 ---
 EOF
