@@ -42,7 +42,7 @@ traffic_signal_sim/
 │   └── performance.py     # Average delay & throughput calculations
 └── requirements.txt
 
-
+---
 
 ##🛠️ Getting Started
 Prerequisites
