@@ -41,3 +41,60 @@ traffic_signal_sim/
 ├── metrics/               # Analytics
 │   └── performance.py     # Average delay & throughput calculations
 └── requirements.txt
+
+
+
+🛠️ Getting Started
+Prerequisites
+Python 3.7 or higher
+
+NumPy (for traffic distribution modeling)
+
+Installation
+Clone the repository:
+
+Bash
+
+git clone [https://github.com/yourusername/traffic_signal_sim.git](https://github.com/yourusername/traffic_signal_sim.git)
+cd traffic_signal_sim
+Set up a virtual environment (Optional):
+
+Bash
+
+python -m venv venv
+# On Windows:
+venv\Scripts\activate  
+# On macOS/Linux:
+source venv/bin/activate  
+Install dependencies:
+
+Bash
+
+pip install -r requirements.txt
+Usage
+To run the simulation with the default rule-based adaptive controller:
+
+Bash
+
+python main.py
+Expected Console Output:
+
+Simulation finished for 500 steps. Total Vehicles Passed: 215 Average Delay per Vehicle: 14.2s
+
+🔧 Extending the Simulation
+Creating a New Controller
+To test a custom algorithm (e.g., Fuzzy Logic or RL), create a new class in controllers/ and implement the decide method:
+
+Python
+
+class MyAIController:
+    def decide(self, intersection, queues):
+        # Your logic: switch phase if queue > threshold
+        # Return 0 for North-South, 1 for East-West
+        pass
+Future Roadmap
+[ ] Visualization: Add a matplotlib wrapper to see real-time queue growth.
+
+[ ] AI Integration: Build a Reinforcement Learning agent using OpenAI Gym wrappers.
+
+[ ] Multi-Intersection: Connect multiple simulation blocks to model a city corridor.
