@@ -44,7 +44,7 @@ traffic_signal_sim/
 
 
 
-🛠️ Getting Started
+##🛠️ Getting Started
 Prerequisites
 Python 3.7 or higher
 
