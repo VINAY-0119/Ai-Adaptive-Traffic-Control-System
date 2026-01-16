@@ -289,18 +289,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Citation
 
-If you use ATSS in your research, please cite:
-
-```bibtex
-@software{atss2026,
-  title = {Adaptive Traffic Signal Simulation Framework},
-  author = {Your Name},
-  year = {2026},
-  url = {https://github.com/yourusername/traffic_signal_sim}
-}
-```
 
 ---
 
