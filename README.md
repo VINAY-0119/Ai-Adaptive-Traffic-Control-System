@@ -1,4 +1,4 @@
-cat > README.md << 'EOF'
+cat > README.md << EOF
 # Adaptive Traffic Signal Simulation (ATSS)
 
 ![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)  
@@ -69,7 +69,7 @@ cd traffic_signal_sim
 \`\`\`bash
 python -m venv venv
 # Windows:
-venv\Scripts\activate
+venv\\Scripts\\activate
 # macOS/Linux:
 source venv/bin/activate
 \`\`\`
