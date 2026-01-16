@@ -281,21 +281,6 @@ flake8 traffic_signal_sim/
 black traffic_signal_sim/
 ```
 
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-
-
----
-
-
----
-
 ## Acknowledgments
 
 - Inspired by classical traffic flow theory and modern adaptive control systems
